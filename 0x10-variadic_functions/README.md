@@ -1,0 +1,1 @@
+0 - C function that returns the sum of all its parameters. 1 - C function that prints numbers, followed by a new line. 2 - C function that prints strings, followed by a new line. 3 - C function that prints anything.
