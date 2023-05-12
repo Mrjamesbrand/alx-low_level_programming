@@ -1,35 +1,28 @@
-#ifndef SEARCH_ALGOS
-#define SEARCH_ALGOS
-#include <stdio.h>
-#include <math.h>
-#include <stdlib.h>
+#include "search_algos.h"
 
-/* helpers */
-void print_array(int *array, size_t inc, size_t size);
-
-typedef struct skiplist_s
+/**
+ * linear_search - Searches for value in arry
+ *                of integers using linear search
+ * @array: A pointer to the first element of the array
+ * @size: number of elements in the array
+ * @value: The value to search for.
+ *
+ * Return: If the value is not present or the array is NULL, -1.
+ *            otherwise, the first index where the value is located.
+ *
+ * Description: Prints every value every time it's compared in the array
+ */
+int linear_search(int *array, size_t size, int value)
 {
-				int n;
-				size_t index;
-				struct skiplist_s *next;
-				struct skiplist_s *express;
-} skiplist_t;
+	size_t iter;
 
-typedef struct listint_s
-{
-		int n;
-		size_t index;
-		struct listint_s *next;
-} listint_t;
-
-/* main functions */
-int linear_search(int *array, size_t size, int value);
-int binary_search(int *array, size_t size, int value);
-int jump_search(int *array, size_t size, int value);
-int interpolation_search(int *array, size_t size, int value);
-int exponential_search(int *array, size_t size, int value);
-int advanced_binary(int *array, size_t size, int value);
-
-listint_t *jump_list(listint_t *list, size_t size, int value);
-skiplist_t *linear_skip(skiplist_t *list, int value);
-#endif
+	if (array == NULL)
+		return (-1);
+	for (iter = 0; iter < size; iter++)
+	{
+		printf("Value checked array[%ld] = [%d]\n", iter, array[iter]);
+		if (array[iter] == value)
+			return (iter);
+	}
+	return (-1);
+}
